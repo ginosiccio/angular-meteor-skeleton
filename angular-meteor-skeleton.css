@@ -1,0 +1,444 @@
+/* CSS declarations go here */
+html {
+    overflow: hidden;
+}
+
+body{
+    margin-bottom: 1px;
+    background-color: white;
+    height:100%;
+    width: 100%;
+    color: white;
+    font-size: 137%;
+}
+
+.app-view{
+    height: 100%;
+    width: 100%;
+}
+
+.login{
+    margin-bottom: 40px;
+}
+
+.st-content{
+    margin-top: 51px;
+    overflow-y: hidden;
+}
+
+  .st-content-inner{
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 80px;
+} 
+
+/* Connection Banner style */
+#connection-lost-banner + .navbar-fixed-top,
+#connection-try-reconnect + .navbar-fixed-top {
+    top: 41px;
+}
+.navbar-fixed-top + #connection-lost-banner,
+.navbar-fixed-top + #connection-try-reconnect {
+    top: 51px;
+}
+
+.login-template {
+    float: right;
+    margin-right: 20px;
+}
+
+.notification-view {
+    z-index: 1;
+    height: 25px;
+    width: 100%;
+    position: absolute;
+    top: -5px;
+}
+
+.menu-toggler-profile {
+    position: fixed;
+    padding: 9px;
+    height: 40px;
+    background: rgba(16, 39, 35, 0.72);
+    top: 130px;
+    left: 301px;
+    visibility: visible;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    width: 30px;
+}
+
+.menu-toggler-search {
+    position: fixed;
+    padding: 9px;
+    height: 40px;
+    background: rgba(9, 60, 144, 0.72);
+    top: 180px;
+    left: 301px;
+    visibility: visible;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    width: 30px;
+}
+.menu-toggler-search:hover, .menu-toggler-profile:hover {
+    cursor: pointer;
+}
+
+.side-left-view {
+
+}
+
+.content-view {
+    height: 100%;
+    width: 100%;
+}
+
+.footer-view {
+    background-color: #171616;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index: 999999;
+}
+
+
+.sign-in-container{
+    padding: 10px;
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    background-color: rgba(86, 139, 148, 0.85);
+    border: 1px dashed;
+}
+
+.sign-in-button{
+    margin-top:13px;
+}
+
+.france-map {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.jqvmap-label {
+    position: absolute;
+    z-index: 99;
+    color: white;
+}
+
+.angular-google-map {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.angular-google-map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 29px;
+}
+
+
+.map-bubble-container {
+    position: absolute;
+    left: 50%;
+    color: #fff;
+    background: rgba(0,0,0,0.5);
+    padding: 42px;
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+    margin: 20px 0 0 -242px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.map-bubble-container h1 {
+    font-size: 1em;
+}
+
+.map-bubble-container h1 span {
+    font-weight: 200;
+}
+
+.map-bubble-container p {
+    font-family: Cambria, Georgia, serif;
+    font-style: italic;
+}
+
+.drop-box {
+    background: #F8F8F8;
+    border: 2px dashed rgba(214, 111, 222, 0.52);
+    height: 70px;
+    text-align: center;
+    padding-top: 10px;
+    color: #59325A;
+    font-size: x-small;
+    margin-top: 10px;
+    margin: 38px;
+}
+ 
+.drop-box.dragover {
+    border: 5px dashed blue;
+}
+ 
+.drop-box.dragover-err {
+    border: 5px dashed red;
+}
+ 
+.uploaded-image {
+    max-height: 100px;
+    max-width: 200px;
+}
+
+.ng-crop-container {
+    height: 190px;
+    overflow: hidden;
+}
+ 
+.images-container-title {
+    padding-bottom: 30px;
+}
+ 
+.profile-image-container {
+    position: relative;
+    margin-right: 10px;
+    max-height: 200px;
+    max-width: 200px;
+}
+ 
+.main-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #f8f8f8;
+}
+
+.profile-image-header-default {
+    border-radius: 50%;
+    width: 36px;
+    margin: 7px;
+    top: 0px;
+    position: absolute;
+}
+
+.profile-image-header {
+    border-radius: 50%;
+    width: 42px;
+    margin: 4px;
+    top: 0px;
+    position: absolute;
+}
+
+.profile-image-header:hover, .profile-image-header-default:hover {
+    cursor:pointer;
+
+}
+
+.profile-image {
+    border-radius: 50%;
+    width: 60px;
+    margin: 4px;
+}
+
+.photo-preview {
+    margin-top: 14px;
+    margin-bottom: 15px;
+    width: 280px !important;
+}
+
+.img-crop{
+    width: 300px !important;
+    height: 224px !important;
+}
+
+.icon-action-container{
+    display: table;
+    margin: 0 auto;
+}
+
+.icon-action{
+    margin: 10px;
+}
+
+.fa-floppy-o:hover, .fa-camera:hover, .fa-remove:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.fa-heart {
+    color: red;
+}
+
+.fa-heart-o:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.table-font{
+    color: #2C6D7D;
+    background-color: white;
+}
+
+.table-lookups{
+    margin-bottom: 50px;
+}
+
+.side-left-profile{
+    /*background-color: rgba(28, 136, 136, 0.91);*/
+    background-color: rgba(67, 111, 125, 0.67);
+    height: 100%;
+}
+
+.side-left-search{
+    background-color: rgba(23, 63, 123, 0.78);
+    height: 100%;
+}
+
+.side-left-event{
+    background-color: rgba(26, 142, 138, 0.85);
+    height: 100%;
+}
+
+
+
+
+.ui-anim-fade.ng-hide {
+    transition:0.5s linear all;
+    opacity:0;
+}
+
+.ui-anim-fade.ng-show {
+    transition:0.5s linear all;
+    opacity:1;
+}
+
+
+.ui-anim-fade {
+    transition:0.5s linear all;
+    opacity:1;
+}
+
+.ui-anim-fade.ng-enter {
+    opacity:0;
+}
+
+.ui-anim-fade.ng-leave.ng-leave-active {
+    opacity:0;
+}
+
+.ui-anim-fade.ng-enter.ng-enter-active {
+    opacity:1;
+}
+
+.list-profile{
+    width:50px;
+}
+
+.ui-sign-in-button{
+    top: 15px;
+    width: 100px;
+}
+
+.dropdown-menu-profile{
+    top: 50px;
+}
+
+.dropdown-toggle-profile{
+    background-color: #171616 !important;
+    width: 65px;
+}
+
+.st-menu h2 {
+    margin: 0;
+    padding: 14px;
+    color: rgba(0,0,0,0.4);
+    text-shadow: 0 0 1px rgba(0,0,0,0.1);
+    font-weight: 300;
+    font-size: 1.5em;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.71);
+}
+
+.map-style-edit-container{
+
+}
+
+.map-style-edit{
+    margin: 12px 10px;
+}
+
+.map-style-edit:hover, .map-style-edit:hover .cbutton__icon{
+    cursor: pointer;
+    color: #139787;
+}
+
+.map-style-edit-label{
+    margin-left:8px;
+}
+
+.map-style-edit-label-selected{
+    margin-left:8px;
+    color: #139787;
+}
+
+.profile-box {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    height: 51px;
+}
+
+.form-profile{
+    margin: 15px;
+    position: absolute;
+    width: 265px;
+    background: rgba(32, 56, 50, 0.89);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.form-control {
+    height: 24px;
+}
+
+.form-control-static {
+    min-height: 24px;
+    padding-top: 3px;
+}
+
+/* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+.form-horizontal .control-label{
+    padding-top: 3px;
+}
+
+.button-change-password:hover .fa {
+    color: inherit;
+    cursor: inherit;
+}
+
+.error-message{
+    color: #EA6464;
+}
+
+.navbar-inverse{
+    background-color: #171616;
+}

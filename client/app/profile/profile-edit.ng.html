@@ -1,0 +1,131 @@
+<div>
+    <h2 class="icon icon-lab">Profile Edit</h2>
+    <div class="profile-box">
+        <anim-button anim-button-icon="fa-user" anim-button-callback="setProfileState('info')" anim-button-type="sacnite"></anim-button>
+        <anim-button anim-button-icon="fa-camera-retro" anim-button-callback="setProfileState('camera')" anim-button-type="sacnite"></anim-button>
+        <anim-button anim-button-icon="fa-tachometer" anim-button-callback="setProfileState('skills')" anim-button-type="sacnite"></anim-button>
+        <anim-button anim-button-icon="fa-sliders" anim-button-callback="setProfileState('config')" anim-button-type="sacnite"></anim-button>
+	    <anim-button anim-button-icon="fa-unlock-alt" anim-button-callback="setProfileState('security')" anim-button-type="sacnite"></anim-button>
+    </div>
+
+    <div ng-if="profileState=='info'" class='form-profile ui-anim-fade'>
+        <form class="form-horizontal">
+			<div class="form-group">
+				<label class="control-label col-xs-2">Email</label>
+				<div class="col-xs-10">
+					<p class="form-control-static">{{profile.email}}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="username" class="control-label col-xs-2">Pseudo</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" id="userName" placeholder="Pseudo" ng-model="profile.userName">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="firstName" class="control-label col-xs-2">Prénom</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" id="firstName" placeholder="Prénom" ng-model="profile.firstName">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="lastName" class="control-label col-xs-2">Nom</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" id="lastName" placeholder="Nom" ng-model="profile.lastName">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-offset-2 col-xs-10">
+					<div class="checkbox">
+						<label><input type="checkbox" ng-model="profile.active"> Actif</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-offset-2 col-xs-10">
+					<button ng-click="saveProfile()" class="btn btn-primary"><i class="fa fa-floppy-o"></i></button>
+				</div>
+			</div>
+		</form>
+        <p><div class="error-message" ng-show="error">{{error.reason}}</div></p>
+    </div>
+
+    <div ng-show="profileState=='camera'" class='form-profile ui-anim-fade'>
+        <div ng-show="addable() && !imgSrc" ngf-drop ngf-select
+             ngf-change="addImages($files)"
+             ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}" class="drop-box"
+             ngf-multiple="false" ngf-allow-dir="false" ngf-accept="'image/*'"
+             ngf-drop-available="dropAvailable">
+            <div>Click here to select image</div>
+            <div>
+                <strong>OR</strong>
+            </div>
+            <div ng-show="dropAvailable">Drop image here</div>
+        </div>
+
+        <div ng-show="imgSrc" class="ng-crop-container">
+            <img-crop image="imgSrc" result-image="myCroppedImage" area-type="square"></img-crop>
+        </div>
+
+        <div class="icon-action-container" ng-show="addable()">
+            <span class="icon-action"><i class="fa fa-camera" ng-click="camera()" ng-show="!imgSrc"></i></span>
+            <span class="icon-action"><i class="fa fa-floppy-o" ng-click="saveCroppedImage()" ng-show="imgSrc"></i></span>
+        </div>
+
+        <div>
+        <span ng-repeat="image in images">
+            <div>
+                <img class="profile-image" src="{{ image.url()}}"/>
+                <i class="fa fa-remove" ng-click="remove(image)"></i>
+                <i class="fa fa-heart-o" ng-show="!image.favorite" ng-click="setFavorite(image)"></i>
+                <i class="fa fa-heart" ng-show="image.favorite"></i>
+                <!--<img class="profile-image" ng-src="{{ image.url({store: 'thumbnail'})}}"/><br/>-->
+            </div>
+        </span>
+        </div>
+    </div>
+
+	<div ng-if="profileState=='config'" class='form-profile ui-anim-fade'>
+		<div class="map-style-edit-container">
+			<div ng-repeat="mapStyle in mapStyles" >
+				<div class="map-style-edit"  anim-click anim-click-callback="setMapStyle(mapStyle)" anim-click-type="novak" anim-click-icon="{{getAnimClickIcon(mapStyle)}}">
+					<span class="map-style-edit-label{{isSelected(mapStyle)}}">{{mapStyle}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div ng-if="profileState=='security'" class='form-profile ui-anim-fade'>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label for="oldPassword" class="control-label col-xs-2"></label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" id="oldPassword" placeholder="Ancien mot de passe" ng-model="security.oldPassword">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="newPassword" class="control-label col-xs-2"></label>
+				<div class="col-xs-10">
+					<input type="password" class="form-control" id="newPassword" placeholder="Nouveau mot de passe" ng-model="security.newPassword">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="newPasswordDiff" class="control-label col-xs-2"></label>
+				<div class="col-xs-10">
+					<input type="password" class="form-control" id="newPasswordDiff" placeholder="Nouveau mot de passe" ng-model="security.newPasswordDiff">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-offset-2 col-xs-10">
+					<button class="btn btn-primary button-change-password" ng-click="changePassword()" ng-disabled="!security.newPassword || !security.newPassword || !security.newPasswordDiff"><i class="fa fa-floppy-o"></i></button>
+				</div>
+			</div>
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <p><div class="error-message" ng-show="error">{{error.reason}}</div></p>
+                </div>
+            </div>
+		</form>
+    </div>
+
+</div>

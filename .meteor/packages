@@ -1,0 +1,38 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+accounts-password
+twbs:bootstrap
+angular
+angularui:angular-ui-router
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+fortawesome:fontawesome
+natestrauser:connection-banner
+urigo:angular-blaze-template
+accounts-ui
+accounts-google
+accounts-facebook
+accounts-twitter
+angularui:angular-google-maps
+email
+cfs:standard-packages
+cfs:gridfs
+danialfarid:ng-file-upload
+mdg:camera
+alexk111:ng-img-crop
+angular:angular-animate
